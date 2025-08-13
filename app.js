@@ -57,8 +57,37 @@ function mostrarListaAmigos() {
         // Asigno el texto del elemento <li> como el nombre de cada amigo.
         li.textContent = nombre;
 
-        /* Agrego el elemento <li> al elemento <ul> previamente seleccionado.
+        /* Agrego el elemento <li> (hijo) al elemento <ul> (padre) previamente seleccionado.
         Para cada amigo, creó un nuevo elemento de lista que se muestra en la pantalla. */
         lista.appendChild(li);
     }
+}
+
+// Función para sortear un amigo aleatoriamente.
+function sortearAmigo() {
+
+    // Verifico que haya al menos un amigo en el array.
+    if (amigos.length === 0) {
+        alert("No hay nombres en la lista para sortear.");
+        return;
+    }
+
+    // Genero un índice de lista aleatorio (entre 0 y la longitud del array - 1).
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+
+    // Selecciono un amigo aleatorio usando el índice generado.
+    const amigoSorteado = amigos[indiceAleatorio];
+
+    /* Selecciono del documento HTML la lista <ul> con id="resultado" 
+    donde se va a mostrar en pantalla el amigo secreto sorteado. */
+    const resultado = document.getElementById("resultado");
+
+    /* Coloco un texto que aparecerá en pantalla mostrando quién es el amigo secreto.
+    Utilizo la propiedad innerHTML para insertar contenido HTML en el elemento.
+    El texto se coloca entre comillas invertidas (``) para poder usar
+    interpolación de variables y así incluir el nombre del amigo sorteado.
+    Los tags HTML permiten darle formato al texto y el navegador no los muestra como texto plano.
+    Al ser el contenedor una lista, entonces coloco el texto en un elemento de lista <li>.
+    El nombre del amigo secreto aparecerá en negrita en pantalla gracias al tag <strong>. */
+    resultado.innerHTML = `<li> El amigo secreto es: <strong>${amigoSorteado}</strong> </li>`;
 }
