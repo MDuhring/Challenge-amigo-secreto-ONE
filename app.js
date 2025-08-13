@@ -21,11 +21,16 @@ function agregarAmigo() {
         return; // Para este caso, detiene la función para que no agregue nada.
     }
 
-    /* Agrego el nuevo nombre al final del array amigos 
-    y dejo el campo de texto vacío para que el usuario 
-    pueda escribir otro nombre sin borrar manualmente. */
+    // Agrego el nuevo nombre al final del array amigos.
     amigos.push(nombre);
+
+    /* Dejo el campo de texto vacío para que el usuario 
+    pueda escribir otro nombre sin borrar manualmente. */
     input.value = "";
+
+    /* Devuelvo el cursor al campo de entrada para que el usuario pueda seguir escribiendo.
+    No es necesario que vuelva a hacer click sobre dicho campo cada vez que agrega un nombre. */
+    input.focus();
 
     // Llamo a la función para mostrar la lista en pantalla actualizada.
     mostrarListaAmigos();
