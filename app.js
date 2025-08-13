@@ -27,7 +27,22 @@ function agregarAmigo() {
     amigos.push(nombre);
     input.value = "";
 
-    // Llamo a la función para mostrar la lista actualizada.
+    // Llamo a la función para mostrar la lista en pantalla actualizada.
     mostrarListaAmigos();
 }
 
+/* Defino la función que se encarga de pintar en HTML (en pantalla)
+ la lista de amigos agregados.*/
+function mostrarListaAmigos() {
+
+    /* Selecciono del documento HTML el elemento <ul> (lista sin orden) con id="listaAmigos",
+    donde se mostrarán los nombres.*/
+    const lista = document.getElementById("listaAmigos");
+
+    /*Vacío la lista antes de volver a mostrarla para que 
+    no se dupliquen o repitan los nombres anteriormente almacenados
+    al agregar uno nuevo.*/
+    lista.innerHTML = "";
+
+    
+}
