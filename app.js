@@ -1,7 +1,7 @@
 // Array para almacenar los nombres de amigos.
 let amigos = [];
 
-// Función para agregar un amigo a la lista.
+// Defino función para agregar un amigo a la lista.
 function agregarAmigo() {
 
     /* Capturo el valor del campo de entrada 
@@ -29,7 +29,7 @@ function agregarAmigo() {
     input.value = "";
 
     /* Devuelvo el cursor al campo de entrada para que el usuario pueda seguir escribiendo.
-    No es necesario que vuelva a hacer click sobre dicho campo cada vez que agrega un nombre. */
+    ¡No es necesario que vuelva a hacer click sobre dicho campo cada vez que agrega un nombre! */
     input.focus();
 
     // Llamo a la función para mostrar la lista en pantalla actualizada.
@@ -68,7 +68,8 @@ function mostrarListaAmigos() {
     }
 }
 
-// Función para sortear un amigo aleatoriamente.
+/* Defino función para sortear un amigo aleatoriamente.
+La misma es invocada al hacer click sobre el botón "Sortear amigo secreto". */
 function sortearAmigo() {
 
     // Verifico que haya al menos un amigo en el array.
@@ -96,3 +97,12 @@ function sortearAmigo() {
     El nombre del amigo secreto aparecerá en negrita en pantalla gracias al tag <strong>. */
     resultado.innerHTML = `<li> El amigo secreto es: <strong>${amigoSorteado}</strong> </li>`;
 }
+
+/* Agrego un listener al campo de entrada para detectar cuando se presiona la tecla "Enter". 
+Cuando se apreta "Enter" en el campo de entrada se invoca a la función agregarAmigo. 
+¡Mejoramos la UX (User eXperience)! */
+document.getElementById("amigo").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        agregarAmigo();
+    }
+});
